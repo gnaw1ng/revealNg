@@ -1,2 +1,2 @@
 # revealNg
-揭秘angular学习库 
+GF Securities angular 项目学习
