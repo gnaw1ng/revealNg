@@ -1,0 +1,35 @@
+<template id="custom-template">
+    <style>
+       h1 {color: darkgray }
+    </style>
+
+    <h1>This is Web Component</h1>
+</template>
+
+<script>
+    var indexDoc = document;
+    var customdoc = (indexDoc._currentScript || indexDoc.currentScript).ownerDocument;
+    var tmpl = customdoc.querySelector("#custom-template");
+
+    var customProto = Object.create(HTMLElement.prototype);
+
+    customProto.createdCallback = function(){
+        var root = this.createShadowRoot();
+        root.appendChild(indexDoc.importNode(tmpl.content,true));
+    }
+
+ var custom=  indexDoc.registerElement("custom-component",{
+    prototype : customProto
+   })
+    // var custom = customElements.define("custom-conponent",{
+    //     prototype : customProto
+    // });
+
+    /*
+      Web Component
+        * 自定义元素
+        * 模板 template 不随页面加载而渲染,在运行时使用javascript创建
+        * shadow DOM 在文档流中创建一些完全独立于其他元素的dom子树
+        * html导入 使用improt导入web component机制
+    */
+</script>

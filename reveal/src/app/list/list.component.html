@@ -1,0 +1,7 @@
+<div *ngFor="let item of pers" style="float:left;margin-left:10px">
+    <nz-input [nzPlaceHolder]="'please enter the profile'" [(ngModel)]="item.profile"></nz-input>
+    <br/> <br/> 
+    <!-- <app-list-item [person]="item" (OnPersonClick)="handleClick($event)" (click)="personItem.handlefromParentClick()" #personItem></app-list-item>  -->
+
+    <app-list-item [person]="item" (OnPersonClick)="handleClick($event)" (click)="clickChildFunction()" #personItem></app-list-item> 
+</div>
